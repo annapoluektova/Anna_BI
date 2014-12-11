@@ -1,0 +1,83 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="InstitutionSenderFlatFileConnectionManager"
+  DTS:DTSID="{168B7479-6042-47A3-B08B-471721FA3974}"
+  DTS:CreationName="FLATFILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Format="Delimited"
+      DTS:LocaleID="1033"
+      DTS:HeaderRowDelimiter="_x000D__x000A_"
+      DTS:ColumnNamesInFirstDataRow="True"
+      DTS:RowDelimiter=""
+      DTS:TextQualifier="_x003C_none_x003E_"
+      DTS:CodePage="1252"
+      DTS:ConnectionString="D:\User Documents\Desktop\Communication_DPOHExport.csv">
+      <DTS:FlatFileColumns>
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="500"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="COMLOG_ID"
+          DTS:DTSID="{9EC1BD34-3B0D-48F2-9588-D1FAA06F26C4}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="500"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="DPOH_LAST_NM_TCPD"
+          DTS:DTSID="{36BEB353-6FAF-4484-916B-529020A28795}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="500"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="DPOH_FIRST_NM_PRENOM_TCPD"
+          DTS:DTSID="{E71CF709-BB61-4C5F-A298-BC459DD7B63D}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="500"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="DPOH_TITLE_TITRE_TCPD"
+          DTS:DTSID="{7346602D-CAC8-42E5-AB99-33371082C176}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="500"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="BRANCH_UNIT_DIRECTION_SERVICE"
+          DTS:DTSID="{E53B7C5B-53B4-43BE-AC18-73BC22800EC4}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="500"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="OTHER_INSTITUTION_AUTRE"
+          DTS:DTSID="{7EC94503-5B41-4CDA-A000-243BCAAAD15D}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x000D__x000A_"
+          DTS:MaximumWidth="500"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="INSTITUTION"
+          DTS:DTSID="{7A3B8258-33AC-4583-B744-BBB5CB4751DD}"
+          DTS:CreationName="" />
+      </DTS:FlatFileColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

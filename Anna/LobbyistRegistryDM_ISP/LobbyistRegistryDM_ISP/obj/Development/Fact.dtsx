@@ -1,0 +1,2600 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/5/2014 3:53:20 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="USER-PC"
+  DTS:CreatorName="User-PC\User"
+  DTS:DTSID="{C79FCD2C-1636-45A0-839C-14843E6F4077}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Fact"
+  DTS:PackageType="5"
+  DTS:VersionBuild="88"
+  DTS:VersionGUID="{7AA921CD-36A9-4D31-A642-21D460F10BD6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BACA108F-3AE9-4FFC-BFCD-16584FF07C55}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow\Client Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Client Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimClient]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimClient]) [refTable]
+where [refTable].[ClientNumber] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">20</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ClientNumber" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="EnglishNameOfClient" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FrenchNameOfClient" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow\320:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow\Client Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow\Client Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow\Client Lookup.Inputs[Lookup Input].Columns[ClientNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="ClientNumber"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientNumber]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ClientNumber</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow\Client Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow\Client Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Client Lookup.Outputs[Lookup Match Output].Columns[ClientNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="500"
+                      lineageId="Package\Data Flow\Client Lookup.Outputs[Lookup Match Output].Columns[ClientNumber]"
+                      name="ClientNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ClientNumber</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Client Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow\Client Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Client Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow\Client Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Client Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Client Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow\Client Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Client Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow\Date Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Date Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimDate]) [refTable]
+where [refTable].[DateCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">20</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateCode" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="RegistrantNumber" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="RegistrantLastName" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="RegistrantFirstName" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CommunicationDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CertifiedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PostedToRegistryDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow\321:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow\Date Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow\Date Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow\Date Lookup.Inputs[Lookup Input].Columns[DateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="DateCode"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow\Date Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow\Date Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Date Lookup.Outputs[Lookup Match Output].Columns[DateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="500"
+                      lineageId="Package\Data Flow\Date Lookup.Outputs[Lookup Match Output].Columns[DateCode]"
+                      name="DateCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DateCode</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Date Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow\Date Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Date Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow\Date Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow\Instituion Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Instituion Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimInstitution]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimInstitution]) [refTable]
+where [refTable].[InstitutionID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">20</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="InstitutionID" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ManuallyEnteredInstitution" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Institution" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow\322:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow\Instituion Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow\Instituion Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow\Instituion Lookup.Inputs[Lookup Input].Columns[InstitutionID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="InstitutionID"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[InstitutionID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">InstitutionID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow\Instituion Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Match Output].Columns[InstitutionID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="500"
+                      lineageId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Match Output].Columns[InstitutionID]"
+                      name="InstitutionID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">InstitutionID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Instituion Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow\Instituion Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow\Instituion Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[LobbyistRegistryFact]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClientNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="ClientNumber"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientNumber]"
+                      lineageId="Package\Data Flow\Client Lookup.Outputs[Lookup Match Output].Columns[ClientNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SubjectID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="SubjectID"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubjectID]"
+                      lineageId="Package\Data Flow\Subject Lookup.Outputs[Lookup Match Output].Columns[SubjectID]" />
+                    <inputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="DateCode"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCode]"
+                      lineageId="Package\Data Flow\Date Lookup.Outputs[Lookup Match Output].Columns[DateCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InstitutionID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="InstitutionID"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InstitutionID]"
+                      lineageId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Match Output].Columns[InstitutionID]" />
+                    <inputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SenderID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="SenderID"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SenderID]"
+                      lineageId="Package\Data Flow\Sender Lookup.Outputs[Lookup Match Output].Columns[SenderID]" />
+                    <inputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[COfCommunication]"
+                      cachedDataType="i4"
+                      cachedName="COfCommunication"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CostOfCommunication]"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[COfCommunication]" />
+                    <inputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="FID"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FactID]"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[FID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FactID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="FactID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CostOfCommunication]"
+                      dataType="i4"
+                      name="CostOfCommunication" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="ClientNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DateCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubjectID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SubjectID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InstitutionID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="InstitutionID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SenderID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SenderID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimInstitution],[dbo].[DimSubject],
+[dbo].[DimClient],[dbo].[DimDate],[dbo].[DimSender],[dbo].[Fact]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[InstitutionID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InstitutionID]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[InstitutionID]"
+                      name="InstitutionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[ManuallyEnteredInstitution]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ManuallyEnteredInstitution]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[ManuallyEnteredInstitution]"
+                      name="ManuallyEnteredInstitution"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[Institution]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Institution]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[Institution]"
+                      name="Institution"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubjectID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubjectID]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubjectID]"
+                      name="SubjectID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubjectOfCommunication]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubjectOfCommunication]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubjectOfCommunication]"
+                      name="SubjectOfCommunication"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientNumber]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClientNumber]"
+                      name="ClientNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishNameOfClient]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishNameOfClient]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnglishNameOfClient]"
+                      name="EnglishNameOfClient"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[FrenchNameOfClient]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FrenchNameOfClient]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[FrenchNameOfClient]"
+                      name="FrenchNameOfClient"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCode]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCode]"
+                      name="DateCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegistrantNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegistrantNumber]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegistrantNumber]"
+                      name="RegistrantNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegistrantLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegistrantLastName]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegistrantLastName]"
+                      name="RegistrantLastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegistrantFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegistrantFirstName]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegistrantFirstName]"
+                      name="RegistrantFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommunicationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommunicationDate]"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommunicationDate]"
+                      name="CommunicationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[CertifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CertifiedDate]"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[CertifiedDate]"
+                      name="CertifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostedToRegistryDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostedToRegistryDate]"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostedToRegistryDate]"
+                      name="PostedToRegistryDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderID]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderID]"
+                      name="SenderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderLastName]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderLastName]"
+                      name="SenderLastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderFirstName]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderFirstName]"
+                      name="SenderFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderPositionTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderPositionTitle]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderPositionTitle]"
+                      name="SenderPositionTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderBranch]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderBranch]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderBranch]"
+                      name="SenderBranch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[FID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FID]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[FID]"
+                      name="FID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[COfCommunication]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COfCommunication]"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[COfCommunication]"
+                      name="COfCommunication"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[CNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CNumber]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[CNumber]"
+                      name="CNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[DCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DCode]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[DCode]"
+                      name="DCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SID]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SID]"
+                      name="SID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[IID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IID]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[IID]"
+                      name="IID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SendID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SendID]"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SendID]"
+                      name="SendID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InstitutionID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="InstitutionID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ManuallyEnteredInstitution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="ManuallyEnteredInstitution" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Institution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Institution" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubjectID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SubjectID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubjectOfCommunication]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SubjectOfCommunication" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="ClientNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnglishNameOfClient]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="EnglishNameOfClient" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FrenchNameOfClient]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="FrenchNameOfClient" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DateCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegistrantNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="RegistrantNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegistrantLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="RegistrantLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegistrantFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="RegistrantFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommunicationDate]"
+                      dataType="dbTimeStamp"
+                      name="CommunicationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CertifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="CertifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostedToRegistryDate]"
+                      dataType="dbTimeStamp"
+                      name="PostedToRegistryDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SenderID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SenderLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SenderFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderPositionTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SenderPositionTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SenderBranch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SenderBranch" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="FID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COfCommunication]"
+                      dataType="i4"
+                      name="COfCommunication" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="CNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="IID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SendID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SendID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InstitutionID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InstitutionID]"
+                      name="InstitutionID" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ManuallyEnteredInstitution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ManuallyEnteredInstitution]"
+                      name="ManuallyEnteredInstitution" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Institution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Institution]"
+                      name="Institution" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubjectID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubjectID]"
+                      name="SubjectID" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubjectOfCommunication]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubjectOfCommunication]"
+                      name="SubjectOfCommunication" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClientNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClientNumber]"
+                      name="ClientNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishNameOfClient]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnglishNameOfClient]"
+                      name="EnglishNameOfClient" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FrenchNameOfClient]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FrenchNameOfClient]"
+                      name="FrenchNameOfClient" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCode]"
+                      name="DateCode" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegistrantNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegistrantNumber]"
+                      name="RegistrantNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegistrantLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegistrantLastName]"
+                      name="RegistrantLastName" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegistrantFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegistrantFirstName]"
+                      name="RegistrantFirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommunicationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommunicationDate]"
+                      name="CommunicationDate" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CertifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CertifiedDate]"
+                      name="CertifiedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostedToRegistryDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostedToRegistryDate]"
+                      name="PostedToRegistryDate" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderID]"
+                      name="SenderID" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderLastName]"
+                      name="SenderLastName" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderFirstName]"
+                      name="SenderFirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderPositionTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderPositionTitle]"
+                      name="SenderPositionTitle" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderBranch]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SenderBranch]"
+                      name="SenderBranch" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FID]"
+                      name="FID" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COfCommunication]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COfCommunication]"
+                      name="COfCommunication" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CNumber]"
+                      name="CNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DCode]"
+                      name="DCode" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SID]"
+                      name="SID" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IID]"
+                      name="IID" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SendID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SendID]"
+                      name="SendID" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow\Sender Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Sender Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimSender]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimSender]) [refTable]
+where [refTable].[SenderID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">20</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SenderID" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SenderLastName" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SenderFirstName" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SenderPositionTitle" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SenderBranch" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow\323:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow\Sender Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow\Sender Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow\Sender Lookup.Inputs[Lookup Input].Columns[SenderID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="SenderID"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SenderID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SenderID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow\Sender Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow\Sender Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Sender Lookup.Outputs[Lookup Match Output].Columns[SenderID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="500"
+                      lineageId="Package\Data Flow\Sender Lookup.Outputs[Lookup Match Output].Columns[SenderID]"
+                      name="SenderID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SenderID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Sender Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow\Sender Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Sender Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow\Sender Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Sender Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Sender Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow\Sender Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Sender Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow\Subject Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Subject Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimSubject]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimSubject]) [refTable]
+where [refTable].[SubjectID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">20</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SubjectID" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SubjectOfCommunication" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow\324:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow\Subject Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow\Subject Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow\Subject Lookup.Inputs[Lookup Input].Columns[SubjectID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="SubjectID"
+                      lineageId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubjectID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SubjectID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow\Subject Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow\Subject Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Subject Lookup.Outputs[Lookup Match Output].Columns[SubjectID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="500"
+                      lineageId="Package\Data Flow\Subject Lookup.Outputs[Lookup Match Output].Columns[SubjectID]"
+                      name="SubjectID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SubjectID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Subject Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow\Subject Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow\Subject Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow\Subject Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow\Subject Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Subject Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow\Subject Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow\Subject Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow.Paths[Lookup Match Output3]"
+              endId="Package\Data Flow\Sender Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow\Client Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow.Paths[Lookup Match Output4]"
+              endId="Package\Data Flow\Subject Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow\Sender Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow.Paths[Lookup Match Output2]"
+              endId="Package\Data Flow\Instituion Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow\Subject Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow.Paths[Lookup Match Output]"
+              endId="Package\Data Flow\Date Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow\Instituion Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow.Paths[Lookup Match Output1]"
+              endId="Package\Data Flow\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow\Date Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow\Client Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BE1EF3C4-0885-4E47-8FA8-684F431B6F76}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Flat File Source"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="{A0CC0910-3E70-4EBA-99FB-6BD7884C1CA6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DateFlatFileConnectionManager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Cost_Imaginary_Column]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Cost_Imaginary_Column]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Cost_Imaginary_Column]"
+                      name="Cost_Imaginary_Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[COMLOG_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[COMLOG_ID]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[COMLOG_ID]"
+                      name="COMLOG_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[COMLOG_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="COMLOG_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CLIENT_NUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="CLIENT_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[REGISTRANT_NUM_DECLARANT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="REGISTRANT_NUM_DECLARANT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[RGSTRNT_LAST_NM_DCLRNT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="RGSTRNT_LAST_NM_DCLRNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[RGSTRNT_1ST_NM_PRENOM_DCLRNT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="RGSTRNT_1ST_NM_PRENOM_DCLRNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[COMM_DATE]"
+                      dataType="date"
+                      name="COMM_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[REG_TYPE_ENR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="REG_TYPE_ENR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SUBMISSION_DATE_SOUMISSION]"
+                      dataType="date"
+                      name="SUBMISSION_DATE_SOUMISSION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[POSTED_DATE_PUBLICATION]"
+                      dataType="date"
+                      name="POSTED_DATE_PUBLICATION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PREV_COMLOG_ID_PRECEDNT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="PREV_COMLOG_ID_PRECEDNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Cost_Imaginary_Column]"
+                      dataType="cy"
+                      name="Cost_Imaginary_Column" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Fact]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cost_Imaginary_Column]"
+                      cachedDataType="cy"
+                      cachedName="Cost_Imaginary_Column"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COfCommunication]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Cost_Imaginary_Column]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[COMLOG_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="COMLOG_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FID]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[COMLOG_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="FID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COfCommunication]"
+                      dataType="i4"
+                      name="COfCommunication" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="CNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="IID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SendID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="SendID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{35C1AFB8-7F57-44D2-AA36-BAECB5ED0D26}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Data Flow"
+          TopLeft="187,258" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task"
+          TopLeft="132,107" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="208.5,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.5,109"
+              Start="0,0"
+              End="42.5,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.5"
+                    Point2="0,54.5"
+                    Point3="4,54.5" />
+                  <mssgle:LineSegment
+                    End="38.5,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.5,54.5"
+                    Point2="42.5,54.5"
+                    Point3="42.5,58.5" />
+                  <mssgle:LineSegment
+                    End="42.5,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Data Flow\OLE DB Destination"
+          TopLeft="368,563" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Data Flow\Client Lookup"
+          TopLeft="374,99" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow\Sender Lookup"
+          TopLeft="385,244" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Data Flow\Instituion Lookup"
+          TopLeft="108,408" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Data Flow\Date Lookup"
+          TopLeft="376,406" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow\Subject Lookup"
+          TopLeft="107,239" />
+        <EdgeLayout
+          Id="Package\Data Flow.Paths[Lookup Match Output3]"
+          TopLeft="446.5,141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,103"
+              Start="0,0"
+              End="14,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.5"
+                    Point2="0,51.5"
+                    Point3="4,51.5" />
+                  <mssgle:LineSegment
+                    End="10,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,51.5"
+                    Point2="14,51.5"
+                    Point3="14,55.5" />
+                  <mssgle:LineSegment
+                    End="14,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-41.19138671875,56.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow.Paths[Lookup Match Output4]"
+          TopLeft="385,262.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125,0"
+              Start="0,0"
+              End="-117.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-117.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-106.94138671875,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow.Paths[Lookup Match Output2]"
+          TopLeft="186.5,281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,127"
+              Start="0,0"
+              End="0,119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,53.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow.Paths[Lookup Match Output]"
+          TopLeft="271,428">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105,0"
+              Start="0,0"
+              End="97.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0.558613281249997,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow.Paths[Lookup Match Output1]"
+          TopLeft="446,448">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,115"
+              Start="0,0"
+              End="8.5,107.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.5"
+                    Point2="0,57.5"
+                    Point3="4,57.5" />
+                  <mssgle:LineSegment
+                    End="4.5,57.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,57.5"
+                    Point2="8.5,57.5"
+                    Point3="8.5,61.5" />
+                  <mssgle:LineSegment
+                    End="8.5,107.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.94138671875,62.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Data Flow\OLE DB Source"
+          TopLeft="138,107" />
+        <EdgeLayout
+          Id="Package\Data Flow.Paths[OLE DB Source Output]"
+          TopLeft="290,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84,-8"
+              Start="0,0"
+              End="76.5,-8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38,0"
+                    Point2="42,0"
+                    Point3="42,-4" />
+                  <mssgle:LineSegment
+                    End="42,-4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42,-4"
+                    Point2="42,-8"
+                    Point3="46,-8" />
+                  <mssgle:LineSegment
+                    End="76.5,-8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow\Client Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimClient]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow\Sender Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimSender]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow\Instituion Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimInstitution]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow\Date Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow\Subject Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimSubject]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="367,195" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="396,69" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="472.5,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19,84"
+              Start="0,0"
+              End="-19,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="-4,42" />
+                  <mssgle:LineSegment
+                    End="-15,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15,42"
+                    Point2="-19,42"
+                    Point3="-19,46" />
+                  <mssgle:LineSegment
+                    End="-19,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

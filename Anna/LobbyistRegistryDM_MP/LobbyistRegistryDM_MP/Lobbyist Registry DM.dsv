@@ -1,0 +1,295 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="055e82b5-4ea6-4b38-be78-6d9092e0ee1f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Lobbyist Registry DM</ID>
+  <Name>Lobbyist Registry DM</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Lobbyist Registry DM</DataSourceID>
+  <Schema>
+    <xs:schema id="Lobbyist_x0020_Registry_x0020_DM" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Lobbyist_x0020_Registry_x0020_DM" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="b40befc6-97de-4c8f-a0b0-39cbd7987c43">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_DimClient" msprop:design-time-name="dce27b48-a641-4113-af38-8fec83cd6708" msprop:DbTableName="DimClient" msprop:FriendlyName="DimClient" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ClientNumber" msprop:design-time-name="a64cb593-cc77-4f95-b775-d3a29e9cde51" msprop:DbColumnName="ClientNumber" msprop:FriendlyName="ClientNumber">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EnglishNameOfClient" msprop:design-time-name="10c8e996-5c2a-49f3-9401-f3ade8c6e963" msprop:DbColumnName="EnglishNameOfClient" msprop:FriendlyName="EnglishNameOfClient" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FrenchNameOfClient" msprop:design-time-name="fc332f5b-b3fb-450c-8460-7093d846ffa2" msprop:DbColumnName="FrenchNameOfClient" msprop:FriendlyName="FrenchNameOfClient" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimDate" msprop:design-time-name="e346af76-0acf-43f7-8aa0-1c78c83618fe" msprop:DbTableName="DimDate" msprop:FriendlyName="DimDate" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DateCode" msprop:design-time-name="17a422b2-605b-4a6e-8c44-280c2436f4b8" msprop:DbColumnName="DateCode" msprop:FriendlyName="DateCode">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="RegistrantNumber" msprop:design-time-name="18b3e0ab-0a6a-4ec3-b371-5cec7c3bdeea" msprop:DbColumnName="RegistrantNumber" msprop:FriendlyName="RegistrantNumber" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="RegistrantLastName" msprop:design-time-name="3baef6cd-a764-4029-b9f2-7740b2f76988" msprop:DbColumnName="RegistrantLastName" msprop:FriendlyName="RegistrantLastName" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="RegistrantFirstName" msprop:design-time-name="bd40a8bb-ccbd-4c2e-a971-3730496d449c" msprop:DbColumnName="RegistrantFirstName" msprop:FriendlyName="RegistrantFirstName" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CommunicationDate" msprop:design-time-name="69b41540-d1a5-4c24-a2a7-6b957ce0d234" msprop:DbColumnName="CommunicationDate" msprop:FriendlyName="CommunicationDate" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="CertifiedDate" msprop:design-time-name="a2db7718-3044-4249-84ec-d195c5378269" msprop:DbColumnName="CertifiedDate" msprop:FriendlyName="CertifiedDate" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="PostedToRegistryDate" msprop:design-time-name="77743be3-61c4-4916-857e-9d802c05ae73" msprop:DbColumnName="PostedToRegistryDate" msprop:FriendlyName="PostedToRegistryDate" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimInstitution" msprop:design-time-name="eeba7d9b-f5a2-4792-842c-15a41fc7d07f" msprop:DbTableName="DimInstitution" msprop:FriendlyName="DimInstitution" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="InstitutionID" msprop:design-time-name="887e1271-385c-4564-beb8-2023898b8ebe" msprop:DbColumnName="InstitutionID" msprop:FriendlyName="InstitutionID">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ManuallyEnteredInstitution" msprop:design-time-name="2141810a-e84d-4300-a499-98f58fb29d0d" msprop:DbColumnName="ManuallyEnteredInstitution" msprop:FriendlyName="ManuallyEnteredInstitution" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Institution" msprop:design-time-name="82b39c48-5977-4803-9bad-c2423a9993ad" msprop:DbColumnName="Institution" msprop:FriendlyName="Institution" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimSender" msprop:design-time-name="8fcc5929-9a18-4188-ac2c-e12615740188" msprop:DbTableName="DimSender" msprop:FriendlyName="DimSender" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SenderID" msprop:design-time-name="4ec91024-ecb5-412d-9d50-80f5d0a486a3" msprop:DbColumnName="SenderID" msprop:FriendlyName="SenderID">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SenderLastName" msprop:design-time-name="a71d95c4-d712-4b43-8661-03d527da3754" msprop:DbColumnName="SenderLastName" msprop:FriendlyName="SenderLastName" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SenderFirstName" msprop:design-time-name="34cf3281-fefc-453f-8dff-00faaa5e5e21" msprop:DbColumnName="SenderFirstName" msprop:FriendlyName="SenderFirstName" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SenderPositionTitle" msprop:design-time-name="5c18e68f-74c1-41ab-8ff0-0e38cbacf057" msprop:DbColumnName="SenderPositionTitle" msprop:FriendlyName="SenderPositionTitle" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SenderBranch" msprop:design-time-name="c63486e5-ce0e-4867-854a-4ef712bee807" msprop:DbColumnName="SenderBranch" msprop:FriendlyName="SenderBranch" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimSubject" msprop:design-time-name="7a383f8f-ad75-4add-897a-d8c7a8a5638a" msprop:DbTableName="DimSubject" msprop:FriendlyName="DimSubject" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SubjectID" msprop:design-time-name="89f6edfa-052b-4f73-b100-5dcece5cd1e1" msprop:DbColumnName="SubjectID" msprop:FriendlyName="SubjectID">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SubjectOfCommunication" msprop:design-time-name="f6a973e8-b42e-41fc-9bfe-d688fa320a3f" msprop:DbColumnName="SubjectOfCommunication" msprop:FriendlyName="SubjectOfCommunication" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_LobbyistRegistryFact" msprop:design-time-name="f6aca61c-3144-4dd7-a383-25a4ab28f63b" msprop:DbTableName="LobbyistRegistryFact" msprop:FriendlyName="LobbyistRegistryFact" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="FactID" msprop:design-time-name="a3f2aa01-7411-4bd4-b3a3-bc48d5d51a56" msprop:DbColumnName="FactID" msprop:FriendlyName="FactID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CostOfCommunication" msprop:design-time-name="71e872aa-1f0e-4469-88d8-9c49d616a305" msprop:DbColumnName="CostOfCommunication" msprop:FriendlyName="CostOfCommunication" type="xs:int" minOccurs="0" />
+                  <xs:element name="ClientNumber" msprop:design-time-name="60901953-edb5-41f4-baea-f8849db77220" msprop:DbColumnName="ClientNumber" msprop:FriendlyName="ClientNumber" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DateCode" msprop:design-time-name="2f78b8d3-1abc-4447-8d62-e5538d7aa2c0" msprop:DbColumnName="DateCode" msprop:FriendlyName="DateCode" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SubjectID" msprop:design-time-name="3aa48a40-45e6-41fc-9c61-fecdcfee13e8" msprop:DbColumnName="SubjectID" msprop:FriendlyName="SubjectID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="InstitutionID" msprop:design-time-name="cb1b12ed-07e0-49cd-a437-bdbc94ad57c9" msprop:DbColumnName="InstitutionID" msprop:FriendlyName="InstitutionID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SenderID" msprop:design-time-name="81ecd39b-d86f-4308-866f-85bc39ab0bd6" msprop:DbColumnName="SenderID" msprop:FriendlyName="SenderID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimClient" />
+          <xs:field xpath="ClientNumber" />
+        </xs:unique>
+        <xs:unique name="dbo_DimDate_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimDate" />
+          <xs:field xpath="DateCode" />
+        </xs:unique>
+        <xs:unique name="dbo_DimInstitution_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimInstitution" />
+          <xs:field xpath="InstitutionID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimSender_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimSender" />
+          <xs:field xpath="SenderID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimSubject_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimSubject" />
+          <xs:field xpath="SubjectID" />
+        </xs:unique>
+        <xs:keyref name="FK_LobbyistRegistryFact_DimInstitution" refer="dbo_DimInstitution_Constraint1">
+          <xs:selector xpath=".//dbo_LobbyistRegistryFact" />
+          <xs:field xpath="InstitutionID" />
+        </xs:keyref>
+        <xs:keyref name="FK_LobbyistRegistryFact_DimClient" refer="Constraint1">
+          <xs:selector xpath=".//dbo_LobbyistRegistryFact" />
+          <xs:field xpath="ClientNumber" />
+        </xs:keyref>
+        <xs:keyref name="FK_LobbyistRegistryFact_DimDate" refer="dbo_DimDate_Constraint1">
+          <xs:selector xpath=".//dbo_LobbyistRegistryFact" />
+          <xs:field xpath="DateCode" />
+        </xs:keyref>
+        <xs:keyref name="FK_LobbyistRegistryFact_DimSubject" refer="dbo_DimSubject_Constraint1">
+          <xs:selector xpath=".//dbo_LobbyistRegistryFact" />
+          <xs:field xpath="SubjectID" />
+        </xs:keyref>
+        <xs:keyref name="FK_LobbyistRegistryFact_DimSender" refer="dbo_DimSender_Constraint1">
+          <xs:selector xpath=".//dbo_LobbyistRegistryFact" />
+          <xs:field xpath="SenderID" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Lobbyist_x0020_Registry_x0020_DM xmlns="" />
+  </Schema>
+</DataSourceView>

@@ -1,0 +1,692 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="087b7ffa-7ac8-4b8d-ae8a-05b6de7db5fa" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Lobbyist Registry DM</ID>
+  <Name>Lobbyist Registry DM</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-7846" scrolltop="-3355" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="32703" y="21802" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DimSender" left="9652" top="11097" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3625" height="3149" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000290e00004d0c0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DimSender" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DimSubject" left="12625" top="5760" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="4366" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800000e11000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DimSubject" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="LobbyistRegistryFact" left="6256" top="4702" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3969" height="3995" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000810f00009b0f0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_LobbyistRegistryFact" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DimInstitution" left="5992" top="0" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="4498" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="0008000092110000fe080000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DimInstitution" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DimDate" left="3204" top="11097" logicalid="5" controlid="5" masterid="0" hint1="0" hint2="0" width="4048" height="3995" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000d00f00009b0f0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DimDate" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DimClient" left="20" top="5548" logicalid="6" controlid="6" masterid="0" hint1="0" hint2="0" width="3836" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000fc0e0000fe080000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DimClient" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="8490" top="8397" logicalid="7" controlid="7" masterid="0" hint1="0" hint2="0" width="3374" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_LobbyistRegistryFact_DimSender]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="3" sourceattachpoint="6" destattachpoint="9" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="11464" y="11097" />
+              <point x="11464" y="9897" />
+              <point x="8790" y="9897" />
+              <point x="8790" y="8697" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="9925" top="6300" logicalid="8" controlid="8" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_LobbyistRegistryFact_DimSubject]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="3" sourceattachpoint="16" destattachpoint="21" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="12625" y="6699" />
+              <point x="10225" y="6699" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4829" top="8397" logicalid="9" controlid="9" masterid="0" hint1="0" hint2="0" width="2611" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_LobbyistRegistryFact_DimDate]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="3" sourceattachpoint="6" destattachpoint="3" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="5228" y="11097" />
+              <point x="5228" y="9897" />
+              <point x="7140" y="9897" />
+              <point x="7140" y="8697" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="3556" top="6300" logicalid="10" controlid="10" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_LobbyistRegistryFact_DimClient]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="3" sourceattachpoint="17" destattachpoint="20" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="3856" y="6699" />
+              <point x="6256" y="6699" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="7842" top="1803" logicalid="11" controlid="11" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_LobbyistRegistryFact_DimInstitution]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="3" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="8241" y="2302" />
+              <point x="8241" y="3502" />
+              <point x="8240" y="3502" />
+              <point x="8240" y="4702" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-7846</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3355</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="2d9a3c38-4d80-4ca1-b9ba-056058e8a0c9">
+      <ID>Dim Sender</ID>
+      <Name>Dim Sender</Name>
+      <DimensionID>Dim Sender</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="1ff1918c-069e-4a9d-b9b7-d2df46ee8d90">
+          <AttributeID>Sender ID</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="008dc31b-f23d-4b43-864b-4334cc3effe3">
+          <AttributeID>Sender Last Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6d458e3b-5d22-4f3a-bbf0-0df32dea373f">
+          <AttributeID>Sender First Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="378d7ea3-1e29-4400-aab7-18e84d2e6ac5">
+          <AttributeID>Sender Position Title</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ef8a1652-9be2-4038-9b1c-81f43bf18cd0">
+          <AttributeID>Sender Branch</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="de031008-8a9a-4eba-9a50-0950bce97a62">
+      <ID>Dim Subject</ID>
+      <Name>Dim Subject</Name>
+      <DimensionID>Dim Subject</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="b4fa4b66-841d-48fc-97e7-2b225a06fd6e">
+          <AttributeID>Subject ID</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6ab10a2c-be9f-4aea-9e90-42f4d0263d1e">
+          <AttributeID>Subject Of Communication</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="ec25e665-03cd-4569-9c10-37cbdd11ef07">
+      <ID>Dim Date</ID>
+      <Name>Dim Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="298b16f4-21ba-440a-88a1-a1057c117656">
+          <AttributeID>Date Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="49757580-f8aa-44ff-8be8-091f54f5789d">
+          <AttributeID>Registrant Number</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a15e9790-1309-4738-9c9e-d2f7b92e3ed1">
+          <AttributeID>Registrant Last Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="28ee9c61-4790-4729-979e-edc875bb1150">
+          <AttributeID>Registrant First Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f4fc55df-bae3-4458-a011-20d8dcc57f83">
+          <AttributeID>Communication Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4efd621b-f261-4b4f-98b9-04e8f2136e6b">
+          <AttributeID>Certified Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="751db94a-4f04-47be-96ed-5abf3d6df4d2">
+          <AttributeID>Posted To Registry Date</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="3a4eb066-6c93-4c64-bdb2-61434167e0fa">
+      <ID>Dim Client</ID>
+      <Name>Dim Client</Name>
+      <DimensionID>Dim Client</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f0a7f1e1-774b-4cee-8164-2ac87f103cd2">
+          <AttributeID>Client Number</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cce08a37-e356-4f67-8eea-4e026d669cf3">
+          <AttributeID>English Name Of Client</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fdbdefec-2ab1-4ec7-b19f-13a5daa1e3ec">
+          <AttributeID>French Name Of Client</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="0b8df642-45d6-458e-94c7-5de368d2d477">
+      <ID>Dim Institution</ID>
+      <Name>Dim Institution</Name>
+      <DimensionID>Dim Institution</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="db8053f4-e925-4f37-880a-d4a771c64d65">
+          <AttributeID>Institution ID</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="94f41d93-4990-4ab3-ba64-48779363141b">
+          <AttributeID>Manually Entered Institution</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="36dd4f75-bf71-46fa-ab3e-7b219b3f87d2">
+          <AttributeID>Institution</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="1e7d339f-37cb-4be5-be39-bd46e5e99fbf">
+      <ID>Lobbyist Registry Fact</ID>
+      <Name>Lobbyist Registry Fact</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="12210710-a73c-493c-883e-a59d4415cab5">
+          <ID>Cost Of Communication</ID>
+          <Name>Cost Of Communication</Name>
+          <Source dwd:design-time-name="b1c88be8-295d-448c-9283-34384250d8d4">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="2d446e24-8bfc-4371-a133-4962bad64d4b">
+              <TableID>dbo_LobbyistRegistryFact</TableID>
+              <ColumnID>CostOfCommunication</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="9b1673ba-9e5c-4281-a1cb-ed04c6805955">
+          <ID>Lobbyist Registry Fact Count</ID>
+          <Name>Lobbyist Registry Fact Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="1999b0e8-8aa9-42f4-8677-64a3c4c6ffd0">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="3c244919-7ee8-40f9-8c66-7aca369d8a97">
+              <TableID>dbo_LobbyistRegistryFact</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="25230acf-efff-4911-a7ee-568e5ddc8609">
+          <CubeDimensionID>Dim Sender</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="354b9bc4-190b-4a5e-bfe0-2ec5031e5afb">
+              <AttributeID>Sender ID</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="502a547a-6f24-4a3c-8af2-dcb005ef3e93">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="48dc20c8-3597-4b9c-bd3e-996418bc4586">
+                    <TableID>dbo_LobbyistRegistryFact</TableID>
+                    <ColumnID>SenderID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ba1e9f8f-f6de-4433-8cca-5039a5c68e55">
+          <CubeDimensionID>Dim Subject</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="3b527c2f-c27e-4c16-baa0-01084b397739">
+              <AttributeID>Subject ID</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="38354c94-f2da-4c98-bcc5-44e0a9aa6bf9">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5dca6275-5ab4-4bee-976f-74bc9f43e7dd">
+                    <TableID>dbo_LobbyistRegistryFact</TableID>
+                    <ColumnID>SubjectID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="eaa8e312-b51c-44d7-a199-22270e43d74a">
+          <CubeDimensionID>Dim Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b2609240-cfa7-43b8-b4fb-56943f8278f3">
+              <AttributeID>Date Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b50ef132-9a00-49d7-90a3-51e432f9266c">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="52ddcceb-ee3a-4015-9b6f-cb54a5a699d1">
+                    <TableID>dbo_LobbyistRegistryFact</TableID>
+                    <ColumnID>DateCode</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="756e86e2-d05b-42ac-acdb-7bf2b9b70de9">
+          <CubeDimensionID>Dim Client</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a83be853-cea6-4c1d-8fcf-b3369accbef3">
+              <AttributeID>Client Number</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="127aad6f-490d-4cdb-9d49-12f2476ffe27">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="03bcec9a-b1ca-43ef-b3a9-232659fc3a84">
+                    <TableID>dbo_LobbyistRegistryFact</TableID>
+                    <ColumnID>ClientNumber</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="90c52563-fc6e-4c37-9f3f-18f0ca7f7fd8">
+          <CubeDimensionID>Dim Institution</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="87a73d1a-6dd2-475e-86f1-6966aaf08137">
+              <AttributeID>Institution ID</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ef076f66-3a6c-4ec8-982e-b4fd0d1fcaf5">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="30ffc65b-65c6-4eab-9092-da6a7ac20b54">
+                    <TableID>dbo_LobbyistRegistryFact</TableID>
+                    <ColumnID>InstitutionID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="1b68324c-e885-42b8-8d2d-8abe1729256c">
+      <ID>Dim Client</ID>
+      <Name>Dim Client</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="c88f9a44-4f99-445a-a705-ac0808df2692">
+          <ID>Dim Client Count</ID>
+          <Name>Dim Client Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="aacb2be7-61a9-4ae4-a460-b552ccf3c257">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="ea9e79d8-bd5e-42b4-8dd1-dcf0d35f22d2">
+              <TableID>dbo_DimClient</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="e4947fe7-d141-4bb0-9eba-09071329df27">
+          <CubeDimensionID>Dim Client</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="cdf6780c-2b75-4c7e-b9c9-edd9ccf05803">
+              <AttributeID>Client Number</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="613a9525-cbec-456b-b780-2b6ad75485b4">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="941fa4fa-af4f-4a83-ae3c-b71983a3b2af">
+                    <TableID>dbo_DimClient</TableID>
+                    <ColumnID>ClientNumber</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="d8fd1143-e989-473a-beb9-298a829d50df">
+      <ID>Dim Date</ID>
+      <Name>Dim Date</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="ff75c96f-5985-4d4c-a7ab-1b1fedc833d7">
+          <ID>Dim Date Count</ID>
+          <Name>Dim Date Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="558e5ece-c26a-4ecf-b840-1fb8d9088a4e">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="c4e47703-c59e-43af-b76b-cfe9108e0931">
+              <TableID>dbo_DimDate</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="f265441f-a7db-42c7-a5bd-aef3fd66b455">
+          <CubeDimensionID>Dim Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="7abdd7e8-554c-4fe7-80d1-00315cb96528">
+              <AttributeID>Date Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7848912b-09ea-4524-bdae-4679a36bdfe3">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d18c01a5-24b6-4aaa-bcc9-2ae8c25169ca">
+                    <TableID>dbo_DimDate</TableID>
+                    <ColumnID>DateCode</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="e4626425-bafc-4ace-9e21-9594d1c3c4af">
+      <ID>Dim Institution</ID>
+      <Name>Dim Institution</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="cbf59a51-7e07-4d02-b3c5-4c140e357927">
+          <ID>Dim Institution Count</ID>
+          <Name>Dim Institution Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="7ad5adaf-cb05-4cc5-9145-198f221c9ead">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="6baeacf8-2d2b-43b3-8d36-096131ff8925">
+              <TableID>dbo_DimInstitution</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="42a09f9e-8b26-4215-936d-c2f79fbf31b3">
+          <CubeDimensionID>Dim Institution</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="7fa7d346-7ea9-4a5d-b9b5-e000fdca9e10">
+              <AttributeID>Institution ID</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1c5515aa-2eb7-42b2-9313-90bd4c80c62c">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e8ae1d88-a480-4aae-817c-6717df7ac215">
+                    <TableID>dbo_DimInstitution</TableID>
+                    <ColumnID>InstitutionID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="aab64f81-c692-448c-9b40-820e07bd28fb">
+      <ID>Dim Sender</ID>
+      <Name>Dim Sender</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="cd261915-cd53-4a72-ac13-ce9ed42964c4">
+          <ID>Dim Sender Count</ID>
+          <Name>Dim Sender Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="3579070c-fd9a-44a8-950e-b36415153976">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="aee20221-e1dd-4525-b4ae-e79e848869bd">
+              <TableID>dbo_DimSender</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="36d84373-fc2a-438f-867f-505f431735d1">
+          <CubeDimensionID>Dim Sender</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ccddc13e-609f-464d-be79-8d5ebf963fe7">
+              <AttributeID>Sender ID</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="5b9795f5-0ef0-4234-9370-e215d2afc4a2">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="527bedf3-a032-42dc-9f1e-2b2c4a9af9d7">
+                    <TableID>dbo_DimSender</TableID>
+                    <ColumnID>SenderID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="312ed4ee-fd3e-4815-b89f-721e7b7d0c2a">
+      <ID>Dim Subject</ID>
+      <Name>Dim Subject</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="0fc42464-c8dc-4667-a4cb-ce4a72201307">
+          <ID>Dim Subject Count</ID>
+          <Name>Dim Subject Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="e71e7e3a-a243-4073-a370-dc056cb94f95">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="7eef09b5-e5b2-4369-ad95-6dadd29c4b1b">
+              <TableID>dbo_DimSubject</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="8201aea9-8053-48cf-bb6b-739f9a59ac32">
+          <CubeDimensionID>Dim Subject</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d2a86ed4-c85d-4073-a3e1-ee16cfcb979d">
+              <AttributeID>Subject ID</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ace407c9-2111-49ff-844b-e57e52196051">
+                  <DataType>WChar</DataType>
+                  <DataSize>500</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f8337ea3-72db-49f4-869e-4db934746d8f">
+                    <TableID>dbo_DimSubject</TableID>
+                    <ColumnID>SubjectID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="6401cddb-4f94-4df8-88a9-06a8590c1c12">
+    <DataSourceViewID>Lobbyist Registry DM</DataSourceViewID>
+  </Source>
+</Cube>

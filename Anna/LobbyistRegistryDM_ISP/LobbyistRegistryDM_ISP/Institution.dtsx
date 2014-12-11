@@ -1,0 +1,884 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/5/2014 3:54:22 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="USER-PC"
+  DTS:CreatorName="User-PC\User"
+  DTS:DTSID="{8B70670C-3396-4908-93C5-F83F8AE7B05A}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Institution"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{EB00214B-5C0C-4836-963E-E04B0EE076DA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Populate DimInstitution"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{524441E9-B086-441F-8799-2926E2FCFD13}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate DimInstitution"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Populate DimInstitution\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimInstitution]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate DimInstitution\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="IID"
+                      externalMetadataColumnId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InstitutionID]"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[IID]" />
+                    <inputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MEnteredInstitution]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="MEnteredInstitution"
+                      externalMetadataColumnId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ManuallyEnteredInstitution]"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[MEnteredInstitution]" />
+                    <inputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Instit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Instit"
+                      externalMetadataColumnId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Institution]"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instit]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InstitutionID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="InstitutionID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ManuallyEnteredInstitution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="ManuallyEnteredInstitution" />
+                    <externalMetadataColumn
+                      refId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Institution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Institution" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate DimInstitution\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate DimInstitution\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate DimInstitution\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate DimInstitution\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct * from Institution;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate DimInstitution\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[IID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IID]"
+                      length="500"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[IID]"
+                      name="IID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[MEnteredInstitution]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MEnteredInstitution]"
+                      length="500"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[MEnteredInstitution]"
+                      name="MEnteredInstitution"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Instit]"
+                      length="500"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instit]"
+                      name="Instit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="IID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MEnteredInstitution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="MEnteredInstitution" />
+                    <externalMetadataColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Instit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Instit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IID]"
+                      name="IID" />
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MEnteredInstitution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MEnteredInstitution]"
+                      name="MEnteredInstitution" />
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Instit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Instit]"
+                      name="Instit" />
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Populate DimInstitution.Paths[OLE DB Source Output]"
+              endId="Package\Populate DimInstitution\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Populate DimInstitution\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populate Institution"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C3B903B7-C35E-4329-8596-BC434D631E2F}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate Institution"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Populate Institution\Flat File Source"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Institution\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="{168B7479-6042-47A3-B08B-471721FA3974}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[InstitutionSenderFlatFileConnectionManager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[COMLOG_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[COMLOG_ID]"
+                      length="500"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[COMLOG_ID]"
+                      name="COMLOG_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[OTHER_INSTITUTION_AUTRE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OTHER_INSTITUTION_AUTRE]"
+                      length="500"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[OTHER_INSTITUTION_AUTRE]"
+                      name="OTHER_INSTITUTION_AUTRE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[INSTITUTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[INSTITUTION]"
+                      length="500"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[INSTITUTION]"
+                      name="INSTITUTION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[COMLOG_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="COMLOG_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DPOH_LAST_NM_TCPD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DPOH_LAST_NM_TCPD" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DPOH_FIRST_NM_PRENOM_TCPD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DPOH_FIRST_NM_PRENOM_TCPD" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DPOH_TITLE_TITRE_TCPD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DPOH_TITLE_TITRE_TCPD" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BRANCH_UNIT_DIRECTION_SERVICE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="BRANCH_UNIT_DIRECTION_SERVICE" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OTHER_INSTITUTION_AUTRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="OTHER_INSTITUTION_AUTRE" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[INSTITUTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="INSTITUTION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate Institution\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Institution]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Institution\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{FDAB12FE-1F18-4064-A91A-A62AAD21BCED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.LobbyistRegistryDM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[COMLOG_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="COMLOG_ID"
+                      externalMetadataColumnId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IID]"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[COMLOG_ID]" />
+                    <inputColumn
+                      refId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OTHER_INSTITUTION_AUTRE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="OTHER_INSTITUTION_AUTRE"
+                      externalMetadataColumnId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MEnteredInstitution]"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[OTHER_INSTITUTION_AUTRE]" />
+                    <inputColumn
+                      refId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INSTITUTION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="INSTITUTION"
+                      externalMetadataColumnId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Instit]"
+                      lineageId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output].Columns[INSTITUTION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="IID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MEnteredInstitution]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="MEnteredInstitution" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Instit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Instit" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate Institution\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Institution\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate Institution\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate Institution\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate Institution\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Populate Institution.Paths[Flat File Source Output]"
+              endId="Package\Populate Institution\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Populate Institution\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F7D63B61-F049-4068-A374-9F7E476C8251}"
+      DTS:From="Package\Populate Institution"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Populate DimInstitution" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Populate DimInstitution"
+          TopLeft="134,261" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Populate Institution"
+          TopLeft="112,48" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="198.5,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.5,171"
+              Start="0,0"
+              End="31.5,163.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,81.5"
+                    Point2="0,85.5"
+                    Point3="4,85.5" />
+                  <mssgle:LineSegment
+                    End="27.5,85.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,85.5"
+                    Point2="31.5,85.5"
+                    Point3="31.5,89.5" />
+                  <mssgle:LineSegment
+                    End="31.5,163.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Populate DimInstitution">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Populate DimInstitution\OLE DB Source"
+          TopLeft="106,51" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Populate DimInstitution\OLE DB Destination"
+          TopLeft="90,300" />
+        <EdgeLayout
+          Id="Package\Populate DimInstitution.Paths[OLE DB Source Output]"
+          TopLeft="179.25,93">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,207"
+              Start="0,0"
+              End="0,199.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,199.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate DimInstitution\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate DimInstitution\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Populate Institution">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Populate Institution\OLE DB Destination"
+          TopLeft="114,296" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Populate Institution\Flat File Source"
+          TopLeft="98,53" />
+        <EdgeLayout
+          Id="Package\Populate Institution.Paths[Flat File Source Output]"
+          TopLeft="174.5,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,201"
+              Start="0,0"
+              End="26,193.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,96.5"
+                    Point2="0,100.5"
+                    Point3="4,100.5" />
+                  <mssgle:LineSegment
+                    End="22,100.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22,100.5"
+                    Point2="26,100.5"
+                    Point3="26,104.5" />
+                  <mssgle:LineSegment
+                    End="26,193.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate Institution\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

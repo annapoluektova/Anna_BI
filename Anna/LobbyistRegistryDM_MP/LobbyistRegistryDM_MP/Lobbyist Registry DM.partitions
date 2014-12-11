@@ -1,0 +1,125 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a7b3be0a-9242-45ea-95c9-11a6fb068b6d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Lobbyist Registry DM</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Lobbyist Registry Fact</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d5740304-3fc3-4daa-aace-69da48475db9">
+          <ID>Lobbyist Registry Fact</ID>
+          <Name>Lobbyist Registry Fact</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="ac1946a1-581a-4857-af31-acd923534773">
+            <DataSourceViewID>Lobbyist Registry DM</DataSourceViewID>
+            <TableID>dbo_LobbyistRegistryFact</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Client</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="05d4ed13-53d3-493a-a275-1a1224013e63">
+          <ID>Dim Client</ID>
+          <Name>Dim Client</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1a5fcaca-67a7-4eaf-b7f1-13594b222066">
+            <DataSourceViewID>Lobbyist Registry DM</DataSourceViewID>
+            <TableID>dbo_DimClient</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Date</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ad28151f-52d7-4ebc-8f43-2a80c16d00d4">
+          <ID>Dim Date</ID>
+          <Name>Dim Date</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3ecff3ab-b48d-419d-a178-c161b3f8aa4a">
+            <DataSourceViewID>Lobbyist Registry DM</DataSourceViewID>
+            <TableID>dbo_DimDate</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Institution</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a69f5ff6-4d8d-450d-b17d-e54dc9966435">
+          <ID>Dim Institution</ID>
+          <Name>Dim Institution</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1cba7c84-7514-43c1-8c6b-e4e2b0156ab7">
+            <DataSourceViewID>Lobbyist Registry DM</DataSourceViewID>
+            <TableID>dbo_DimInstitution</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Sender</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d8040dd1-c7ea-456f-914a-d25e36fd22cc">
+          <ID>Dim Sender</ID>
+          <Name>Dim Sender</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="910d9493-ca80-4262-b83b-9814841b91fc">
+            <DataSourceViewID>Lobbyist Registry DM</DataSourceViewID>
+            <TableID>dbo_DimSender</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Dim Subject</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a92b0536-b361-4c73-9079-d81cda515411">
+          <ID>Dim Subject</ID>
+          <Name>Dim Subject</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4c3f6dc6-14c0-4ead-97c1-71b51cecb702">
+            <DataSourceViewID>Lobbyist Registry DM</DataSourceViewID>
+            <TableID>dbo_DimSubject</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
